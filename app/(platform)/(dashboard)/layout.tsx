@@ -1,0 +1,11 @@
+import DashboardNavbar from '@/components/DashboardNavbar'
+import React from 'react'
+
+export default function layout({children} : {children: React.ReactNode}) {
+  return (
+    <div className='h-full'>
+      <DashboardNavbar/>
+      {children}
+    </div>
+  )
+}
