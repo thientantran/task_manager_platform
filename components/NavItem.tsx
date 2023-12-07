@@ -14,8 +14,11 @@ export type Organization = {
 };
 interface NavItemProps {
   organization: Organization;
+  isExpanded: boolean;
+  isActive: boolean;
+  onExpand: (id: string) => void;
 };
-export default function NavItem({organization}: NavItemProps) {
+export default function NavItem({organization, isExpanded, isActive, onExpand}: NavItemProps) {
   const routes = [
     {
       label: "Boards",
@@ -46,7 +49,11 @@ export default function NavItem({organization}: NavItemProps) {
   return (
     <AccordionItem value={organization.id} className="border-none">
       <AccordionTrigger
-      className="flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline"
+      onClick={() => onExpand(organization.id)}
+      className={cn(
+        "flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline",
+        isActive && !isExpanded && "bg-sky-500/10 text-sky-700"
+      )}
       >
       <div className="flex items-center gap-x-2">
           <div className="w-7 h-7 relative">
