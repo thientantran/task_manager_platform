@@ -1,5 +1,6 @@
+'use client'
 import { deleteBoard } from "@/actions/deleteBoard"
-import { Button } from "@/components/ui/button"
+import FormButton from "./FormButton"
 
 interface BoardProps {
   title: string
@@ -12,9 +13,7 @@ export default function Board({title, id}: BoardProps ) {
       <p>
         Board title: {title}
       </p>
-      <Button type="submit" size='sm'>
-          Delete
-      </Button>
+      <FormButton name="Delete"/>
     </form>
   )
 }
