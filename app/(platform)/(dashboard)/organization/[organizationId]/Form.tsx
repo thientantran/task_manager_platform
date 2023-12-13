@@ -6,7 +6,6 @@ import FormButton from "./FormButton"
 import FormInput from "./FormInput"
 
 export default function Form() {
-
   const { execute, fieldErrors } = useAction(createBoard, {
     onSuccess: (data) => {
       console.log(data, "SUCCESS!")
